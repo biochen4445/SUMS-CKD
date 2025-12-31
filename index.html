@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SUMS-CKD CDSS</title>
+    <title>PURE-CKD CDSS</title>
     
     <!-- React & ReactDOM -->
     <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
@@ -177,7 +177,7 @@
             
             // AI State
             const [insightLoading, setInsightLoading] = useState(false);
-            const [insightText, setInsightText] = useState("Patient exhibits persistent Hyperuricemia despite diet control. eGFR decline correlates with UA spikes.");
+            const [insightText, setInsightText] = useState("Patient exhibits persistent Hyperuricemia despite diet control. eGFR decline correlates with SUA spikes.");
             const [isInsightGenerated, setIsInsightGenerated] = useState(false);
 
             const [explainLoading, setExplainLoading] = useState(false);
@@ -189,7 +189,7 @@
                 setInsightLoading(true);
                 try {
                 const prompt = `
-                    Act as a senior Nephrologist using the SUMS-CKD system.
+                    Act as a senior Nephrologist using the PURE-CKD system.
                     Analyze the following patient data for a 67-year-old male with CKD Stage G4:
                     
                     Recent History (Last 5 months):
@@ -197,7 +197,7 @@
                     
                     Comorbidities: Type 2 Diabetes (HbA1c 7.2%), Hypertension (Controlled), BMI 28.4.
                     
-                    Task: Write a concise, professional clinical note (max 3 sentences) summarizing the relationship between their Uric Acid levels and eGFR decline, and suggesting a management strategy. Use medical terminology.
+                    Task: Write a concise, professional clinical note (max 3 sentences) summarizing the relationship between their Serum Uric Acid levels and eGFR decline, and suggesting a management strategy. Use medical terminology.
                 `;
 
                 const response = await fetch(
@@ -233,10 +233,10 @@
                 
                 const prompt = `
                     Act as an empathetic doctor in Taiwan (speaking Traditional Chinese).
-                    You are explaining to a 67-year-old male patient (Mr. Lin) why you are recommending ${drugInfo.name} for his high uric acid.
+                    You are explaining to a 67-year-old male patient (Mr. Lin) why you are recommending ${drugInfo.name} for his high serum uric acid.
                     
                     Key points to cover:
-                    1. His current condition (High Uric Acid, CKD Stage 4).
+                    1. His current condition (High Serum Uric Acid, CKD Stage 4).
                     2. Why ${selectedDrug} is the best choice (Reason: ${drugInfo.riskReason}).
                     3. Reassure him about safety.
                     
@@ -664,5 +664,6 @@
 </body>
 
 </html>
+
 
 
